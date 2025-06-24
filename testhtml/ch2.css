@@ -1,0 +1,364 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+
+.burger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.textheader{
+    font-weight: bold;
+    font-size: large;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding-bottom: 50px;
+}
+
+
+.fotodiri{
+    width: 200px;        
+    height: 200px;       
+    object-fit: cover;   
+    border-radius: 50%;
+}
+
+h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.nama{
+    width: 500px;
+}
+
+.downloadresume{
+    margin-top: 30px;
+    border: 2px solid #24b4fb;
+    background-color: #24b4fb;
+    border-radius: 0.5em;
+    cursor: pointer;
+    padding: 0.5em 1.2em 0.5em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+}
+
+.downloadresume span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.downloadresume:hover {
+  background-color: #0071e2;
+}
+
+.recent-box{
+    background-color: #dff3fd;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.recent-post{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 600px;
+    padding-bottom: 10px;
+}
+
+.view{
+    color: #05428d;
+}
+
+.recent{
+    font-size: large;
+    font-weight: bold;
+}
+
+.date-info{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card-recent{
+    width: 300px;
+    background-color: #fff;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    color: #21243D;
+}
+
+.card-box{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title-card{
+    font-size: x-large;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.work-card {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.work-card img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-content h3 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.badge {
+  background-color: #142850;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category {
+  color: #8695A4;
+  font-size: 14px;
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #21243D;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #E0E0E0;
+  margin: 30px 0;
+}
+
+footer {
+  text-align: center;
+  margin: 40px 0;
+}
+
+footer .socials {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+footer img {
+  width: 24px;
+  height: 24px;
+}
+
+footer p {
+  font-size: 14px;
+  color: #777;
+}
+
+.feature-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.form-container {
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 500px;
+  
+}
+
+h2 {
+  color: #2c2c5a;
+  margin-bottom: 30px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+textarea {
+  resize: none;
+  border-radius: 20px;
+}
+
+button {
+  background-color: #5d5fef;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button i {
+  margin-right: 8px;
+}
+
+button:hover {
+  background-color: #4a4bd4;
+}
+
+.form{
+    margin: 0;
+  padding: 0;
+  background-color: #dff3fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  text-align: center;
+}
+
+.video iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    margin: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .profile {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px 50px;
+    text-align: center;
+  }
+
+  .nama {
+    width: 100%;
+  }
+
+  .recent-post {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .work-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-content {
+    padding: 0 10px;
+  }
+
+  .card-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+
+  .downloadresume {
+    width: 100%;
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulasi Cicilan Motor</title>
+</head>
+<body>
+  <h2>Simulasi Cicilan Motor</h2>
+  <label>Pemasukan (Rp):</label><br>
+  <input type="number" id="pemasukan" placeholder="Contoh: 8000000" /><br><br>
+
+  <label>Harga Motor (Rp):</label><br>
+  <input type="number" id="hargaMotor" /><br><br>
+
+  <label>Uang Muka (DP) (Rp):</label><br>
+  <input type="number" id="dp" /><br><br>
+
+  <label>Tenor (bulan):</label><br>
+  <select id="tenor">
+    <option value="12">12 bulan</option>
+    <option value="24">24 bulan</option>
+    <option value="36">36 bulan</option>
+    <option value="48">48 bulan</option>
+  </select><br><br>
+
+
+  <button onclick="hitungCicilan()">Hitung Cicilan</button>
+
+  <h3>Hasil:</h3>
+  <div id="hasil"></div>
+
+  <script>
+    function hitungCicilan() {
+      const harga = parseFloat(document.getElementById("hargaMotor").value);
+      const dp = parseFloat(document.getElementById("dp").value);
+      const tenor = parseInt(document.getElementById("tenor").value);
+      const pemasukan = parseFloat(document.getElementById("pemasukan").value);
+      const hasilDiv = document.getElementById("hasil");
+
+      // Validasi input
+      if (isNaN(harga) || isNaN(dp) || isNaN(pemasukan)) {
+        hasilDiv.innerHTML = "<span style='color:red;'>Harga, DP, dan Pemasukan harus diisi dengan angka.</span>";
+        return;
+      }
+
+      // buat kondisi ketika dp kurang dari 30%
+      if(dp < 0.3*harga){
+        hasilDiv.innerHTML = "<span style='color:red;'>DP minimal adalah 30%.</span>";
+        return;
+      }
+
+      // kondisi pemasukan ketika kurang dari 3 juta
+      if(pemasukan<3000000){
+        hasilDiv.innerHTML = "<span style='color:red;'>Pemasukan minimal Rp. 3.000.000</span>";
+        return;
+      }
+
+      // buat perjitungan bunga
+      let bunga = 0
+      switch(tenor){
+        case 12: bunga = 5
+        break
+        case 24: bunga = 8
+        break
+        case 36: bunga = 10
+        break
+        case 48: bunga = 12
+        break
+        default : 'Error'
+        break
+      }
+
+      pinjaman = harga - dp
+      const totalBunga = pinjaman * bunga * 0.01 * tenor / 12
+      
+      // Perhitungan
+      totalPembayaran = pinjaman + totalBunga
+      cicilanBulanan = totalPembayaran/tenor
+
+      hasilDiv.innerHTML = `
+        <p>Pemasukan: Rp ${pemasukan.toLocaleString()}</p>
+        <p>Harga Motor: Rp ${harga.toLocaleString()}</p>
+        <p>DP: Rp ${dp.toLocaleString()}</p>
+        <p>Pinjaman: Rp ${pinjaman.toLocaleString()}</p>
+        <p>Bunga: ${bunga}%</p>
+        <p>Total Pembayaran: Rp ${totalPembayaran.toLocaleString()}</p>
+        <p><strong>Cicilan per bulan: Rp ${cicilanBulanan.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong></p>
+      `;
+    }
+  </script>
+</body>
+</html>

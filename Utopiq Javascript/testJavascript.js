@@ -24,6 +24,7 @@ const arr = [1,2,3]; // List
 arr.map((arr)=>console.log(arr))
 
 console.log(arr);
+console.log(...arr);
 
 const myObj = {
     name : "Willman",
@@ -68,6 +69,36 @@ console.log(x>2 && x<2 ? 'bukan 2'
     : 'undifined')
 
 
+//Function
+
+const hello= (nama, umur) =>{
+    console.log(`Hallo ${nama} umur kamu ${umur} tahun`)
+}
+
+hello("Willman",23)
+
+// Rest argumen
+
+function contohRest(...arg){
+    console.log(arg)
+}
+
+contohRest(1,2,3,4)
+
+const user = {name:"Willman", age:25}
+const location = {city:"Jakarta"}
+const address = ["lebak bulus", "bintaro"]
+
+const profile = {user : user.name,...location,...address}
+
+console.log(user.name)
+console.log(profile)
+
+const fruit = ['banana','apple','manggo']
+
+fruit.pop()
+
+console.log(fruit)
 
 
 

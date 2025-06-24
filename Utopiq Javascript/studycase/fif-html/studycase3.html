@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Pengajuan Leasing</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Daftar Pengajuan Leasing</h2>
+
+  <table id="tabelPengajuan">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Umur</th>
+        <th>DP</th>
+        <th>Harga Motor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data akan dimasukkan ke sini -->
+    </tbody>
+  </table><br>
+
+  <hr>
+
+  <h2>Daftar Pengajuan Disetujui</h2>
+
+  <table id="tabelDisetujui">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table><br>
+
+  <hr>
+
+  <h2>Daftar Umur 21-55</h2>
+
+  <table id="umur">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Harga Motor (Rp)</th>
+            <th>DP (Rp)</th>
+            <th>Bunga (Rp)</th>
+            <th>Cicilan (Rp)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script>
+    async function tampilkanData() {
+      try {
+        const res = await fetch("https://68598a7a138a18086dfec989.mockapi.io/dummy-fif/DummyDataUser");
+        console.log('res: ', res)
+        const data = await res.json();
+        console.log('Data: ', data)
+
+        const tbody = document.querySelector("#tabelPengajuan tbody");
+        tbody.innerHTML = ""; // kosongkan dulu
+
+        const tbody2 = document.querySelector("#tabelDisetujui tbody");
+        tbody2.innerHTML = ""; 
+
+        const tbody3 = document.querySelector("#umur tbody");
+        tbody3.innerHTML = ""; 
+
+        data.forEach((pengajuan, index) => {
+          const row = `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${pengajuan.name}</td>
+              <td>${pengajuan.age}</td>
+              <td>Rp ${parseInt(pengajuan.dp).toLocaleString()}</td>
+              <td>Rp ${parseInt(pengajuan.price).toLocaleString()}</td>
+            </tr>
+          `;
+          const row2 =`
+            <tr>
+                <td>${index + 1}</td>
+              <td>${pengajuan.name}</td>
+              <td>${pengajuan.isApproved?"Disetujui":"Ditolak"}</td>
+            </tr>
+          `
+          tbody.innerHTML += row;
+        tbody2.innerHTML += row2;
+
+        });
+
+        const dataUmur = data.filter((pengajuan, index)=>{
+            return pengajuan.age >=21 &&  pengajuan.age <=55
+
+        })
+
+        dataUmur.forEach((pengajuan, index)=>{
+            
+            let bunga = pengajuan.price*0.7*0.1
+            let cicilan = (pengajuan.price*0.7 + bunga)/12
+            const row3 =`
+                <tr>
+                    <td>${index + 1}</td>
+                  <td>${pengajuan.name}</td>
+                  <td>${pengajuan.age}</td>
+                  <td>${pengajuan.price}</td>
+                  <td>${(Math.ceil(pengajuan.price*0.3)).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                  <td>${(Math.ceil(bunga)).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                  <td>${(Math.ceil(cicilan)).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                </tr>
+            `
+            tbody3.innerHTML += row3;
+        })
+
+      } catch (err) {
+        console.error("Gagal mengambil data:", err);
+      }
+    }
+
+    // Panggil fungsi otomatis saat halaman selesai dimuat
+    document.addEventListener("DOMContentLoaded", tampilkanData);
+  </script>
+</body>
+</html>

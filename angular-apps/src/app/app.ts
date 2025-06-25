@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { Table } from './shared/table/table';
 import { Creditur } from '../model/creditur.interface';
 import { FormsModule } from '@angular/forms';
+import { Form } from "./shared/form/form";
 
 
 @Component({
@@ -12,8 +13,8 @@ import { FormsModule } from '@angular/forms';
     RouterOutlet,
     CommonModule,
     Table,
-    FormsModule
-  ], 
+    Form
+], 
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -60,8 +61,6 @@ export class App {
     }
   ]
 
-  dataFromChildren: string =''
-  imgUrl: string = 'https://picsum.photos/200/300'
 
   
   myFunction(){
@@ -69,8 +68,16 @@ export class App {
     this.name2 = name
   }
   
-  received(e:string){
-    this.dataFromChildren = e
+
+  receivedForm(e:Creditur){
+    this.parentData = [...this.parentData,e]
+  }
+
+  handleDelete(e:number){
+     this.parentData = this.parentData.filter((_, i) => i !== e);
   }
   
+  // handleEdit(e:number){
+
+  // }
 }

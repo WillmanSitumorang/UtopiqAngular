@@ -1,4 +1,4 @@
-<p>table works!</p>
+<h2>Daftar Kreditur</h2>
 
 <table>
     <thead>
@@ -9,6 +9,7 @@
             <th>Pekerjaan</th>
             <th>DP</th>
             <th>Harga Motor</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody >
@@ -19,8 +20,10 @@
             <td>{{item.job}}</td>
             <td>{{item.dp}}</td>
             <td>{{item.price}}</td>
+            <td>
+                <button (click)="onDelete(i)">Hapus</button>
+                <!-- <button (click)="onEdit(i)">Edit</button> -->
+            </td>
         </tr>
     </tbody>
 </table>
-
-<button (click)="sendDataFromChildren()">To Parent</button><br>

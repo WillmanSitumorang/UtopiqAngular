@@ -1,0 +1,27 @@
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Creditur } from '../../../model/creditur.interface';
+
+@Component({
+  selector: 'app-form',
+  imports: [ReactiveFormsModule,CommonModule],
+  templateUrl: './form.html',
+  styleUrl: './form.scss'
+})
+export class Form {
+  userForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    age: new FormControl('',[Validators.required]),
+    price: new FormControl('',[Validators.required]),
+    job: new FormControl('',[Validators.required]),
+    dp: new FormControl('',[Validators.required])
+  })
+
+  @Output() formEmitter = new EventEmitter<any>()
+
+  submit() {
+    this.formEmitter.emit(this.userForm.value)
+    this.userForm.reset(); 
+  }
+}

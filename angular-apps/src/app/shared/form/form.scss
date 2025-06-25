@@ -1,0 +1,63 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f7f8fa; // lebih lembut dari putih
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  max-width: 500px;
+  margin: 0 auto;
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #3b3b3b; // gelap netral
+  }
+
+  input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4;
+    font-size: 15px;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    width: 90%;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: #7eabf5; // biru kalem yang konsisten
+      outline: none;
+      box-shadow: 0 0 4px rgba(126, 171, 245, 0.4);
+    }
+  }
+
+  .error {
+    color: #d9534f; // merah lembut
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  button[type="submit"] {
+    background-color: #7eabf5;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #6595e2;
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #4d5b9e;
+  margin-bottom: 10px;
+}

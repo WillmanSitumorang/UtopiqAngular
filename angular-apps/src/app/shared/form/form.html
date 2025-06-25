@@ -1,0 +1,58 @@
+<h2>Form</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="submit()">
+  <div>
+    <label for="name">
+      Name:
+      <input type="text" formControlName="name" />
+    </label>
+    <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="error">
+      Please fill your name
+    </div>
+    <div *ngIf="userForm.get('name')?.errors?.['minlength']" class="error">
+      Nama harus minimal 3
+    </div>
+  </div>
+
+  <div>
+    <label for="age">
+      Umur:
+      <input type="number" formControlName="age" />
+    </label>
+    <div *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.touched" class="error">
+      Please fill your age
+    </div>
+  </div>
+  
+  <div>
+    <label for="job">
+      Pekerjaan:
+      <input type="text" formControlName="job" />
+    </label>
+    <div *ngIf="userForm.get('job')?.invalid && userForm.get('job')?.touched" class="error">
+      Please fill your job
+    </div>
+  </div>
+  
+  <div>
+    <label for="price">
+      Harga:
+      <input type="number" formControlName="price" />
+    </label>
+    <div *ngIf="userForm.get('price')?.invalid && userForm.get('price')?.touched" class="error">
+      Please fill your price
+    </div>
+
+  <div>
+    <label for="dp">
+      DP: 
+      <input type="number" formControlName="dp" />
+    </label>
+    <div *ngIf="userForm.get('dp')?.invalid && userForm.get('dp')?.touched" class="error">
+      Please fill your dp
+    </div>
+  </div>
+
+  </div>
+  <button type="submit">Save</button>
+</form>

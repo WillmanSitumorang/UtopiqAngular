@@ -10,9 +10,14 @@ import { Creditur } from '../../../model/creditur.interface';
 })
 export class Table {
   @Input() childrenData: Creditur[] =[]
-  @Output() buttonEmitter = new EventEmitter<string>()
+  @Output() deleteEmitter = new EventEmitter<number>()
+  @Output() editEmitter = new EventEmitter<number>()
 
-  sendDataFromChildren(){
-    this.buttonEmitter.emit(this.childrenData[0].name = 'Apis')
+  onDelete(index:number){
+    this.deleteEmitter.emit(index);
   }
+
+  // onEdit(index:number){
+  //   this.editEmitter.emit(index)
+  // }
 }

@@ -1,0 +1,15 @@
+<h1>Hello World! {{name2}}</h1>
+
+<button (click)="myFunction()">Click Here!</button>
+
+<h1>Hello World! {{name2}}</h1>
+
+<app-table [childrenData]="parentData" (buttonEmitter)="received(dataFromChildren)"></app-table>
+
+<img [src]="imgUrl" alt="random picture"> <br>
+
+<input type="text" placeholder="Input your name" [(ngModel)]="name2">
+<p>Your name is: {{name2}}</p>
+<div>-------------</div>
+
+

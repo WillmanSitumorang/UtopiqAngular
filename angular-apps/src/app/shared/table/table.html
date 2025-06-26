@@ -9,17 +9,21 @@
             <th>Pekerjaan</th>
             <th>DP</th>
             <th>Harga Motor</th>
+            <th>Tanggal Pengajuan</th>
+            <th>Tanggal Survey</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody >
-        <tr *ngFor="let item of childrenData; let i = index">
+        <tr *ngFor="let item of childrenData; let i = index" (click) = "onRowClick(item)">
             <td >{{i+1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.age}}</td>
             <td>{{item.job}}</td>
             <td>{{item.dp}}</td>
             <td>{{item.price}}</td>
+            <td>{{item.submittedAt | date : 'shortDate'}}</td>
+            <td>{{item.date | date: 'shortDate'}}</td>
             <td>
                 <button (click)="onDelete(i)">Hapus</button>
                 <!-- <button (click)="onEdit(i)">Edit</button> -->

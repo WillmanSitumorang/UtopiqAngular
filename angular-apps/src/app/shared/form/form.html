@@ -41,7 +41,7 @@
     </label>
     <div *ngIf="userForm.get('price')?.invalid && userForm.get('price')?.touched" class="error">
       Please fill your price
-    </div>
+    </div><br>
 
   <div>
     <label for="dp">
@@ -51,8 +51,19 @@
     <div *ngIf="userForm.get('dp')?.invalid && userForm.get('dp')?.touched" class="error">
       Please fill your dp
     </div>
-  </div>
+  </div><br>
+  
+  <div>
+    <label for="date">
+      Tanggal Survey: 
+      <input type="date" formControlName="date" />
+    </label>
+    <div *ngIf="userForm.get('date')?.invalid && userForm.get('date')?.touched" class="error">
+      Please fill date survey
+    </div>
+    <div *ngIf="userForm.get('date')?.errors?.['minDate']" class="error">Tanggal tidak boleh sebelum hari ini.</div>
+  </div><br>
 
   </div>
-  <button type="submit">Save</button>
+  <button type="submit" [disabled]="userForm.invalid">Save</button>
 </form>

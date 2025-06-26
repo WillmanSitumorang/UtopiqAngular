@@ -50,6 +50,11 @@ form {
     cursor: pointer;
     transition: background-color 0.2s ease;
 
+    &:disabled {
+      background-color: #b0c8f0; // biru muda untuk disabled
+      cursor: not-allowed;
+    }
+
     &:hover {
       background-color: #6595e2;
     }

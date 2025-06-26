@@ -25,7 +25,7 @@
             <td>{{item.submittedAt | date : 'shortDate'}}</td>
             <td>{{item.date | date: 'shortDate'}}</td>
             <td>
-                <button (click)="onDelete(i)">Hapus</button>
+                <button (click)="onDelete(i);$event.stopPropagation()">Hapus</button>
                 <!-- <button (click)="onEdit(i)">Edit</button> -->
             </td>
         </tr>

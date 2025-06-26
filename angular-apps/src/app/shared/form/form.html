@@ -61,7 +61,12 @@
     <div *ngIf="userForm.get('date')?.invalid && userForm.get('date')?.touched" class="error">
       Please fill date survey
     </div>
-    <div *ngIf="userForm.get('date')?.errors?.['minDate']" class="error">Tanggal tidak boleh sebelum hari ini.</div>
+    <div *ngIf="
+    userForm.get('date')?.errors?.['minDate'] &&
+    (userForm.get('date')?.touched || userForm.get('date')?.dirty)
+    " class="error">
+    Tanggal tidak boleh sebelum hari ini.
+    </div>
   </div><br>
 
   </div>

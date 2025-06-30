@@ -1,9 +1,10 @@
 
 export interface Creditur {
-    name : String,
+    id: string,
+    name : string,
     age : number,
     price : number,
-    job : String,
+    job : string,
     dp : number,
     date?: Date,
     submittedAt?: Date;

@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { Table } from './shared/table/table';
 import { Creditur } from '../model/creditur.interface';
 import { Form } from "./shared/form/form";
-import { CrediturData } from './service/creditur-data';
+import { CrediturData } from './service/creditur/creditur-data';
+import { Api } from './service/api/api';
 
 
 @Component({
@@ -12,8 +13,9 @@ import { CrediturData } from './service/creditur-data';
   imports: [
     RouterOutlet,
     CommonModule,
-    Table,
-    Form
+    // Table,
+    // Form,
+    RouterModule
 ], 
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -21,35 +23,80 @@ import { CrediturData } from './service/creditur-data';
 })
 
 
-export class App implements OnInit{
+export class App {
   protected title = 'angular-apps';
   name2: string = 'Willman'
-  parentData : Creditur[] = []
+  // parentData : Creditur[] = []
+  // wordingMessage : string =''
 
-  constructor(
-    private crediturService : CrediturData
-  ){}
-
-  ngOnInit() : void {
-    this.parentData = this.crediturService.getData()
-  }
+  // constructor(
+  //   private crediturService : CrediturData,
+  //   // private apiService : Api,
+  //   private cdRef : ChangeDetectorRef
+  // ){}
 
 
-  myFunction(){
-    let name = "Apis"
-    this.name2 = name
-  }
+
+  
+  // ngOnInit() : void {
+  //   this.getData()
+  // }
+
+  // getData(){
+  //   this.apiService.getData().subscribe((data:any)=>{
+  //     console.log(data)
+  //     this.wordingMessage = 'sukses mengambil data dari API'
+  //     this.parentData = data
+  //     // this.cdRef.detectChanges()
+  //   },(error) =>{
+  //     console.error("Error Fetching Data", error)
+  //     this.wordingMessage = 'gagal mengambil data dari API'
+  //   })
+  // }
+
+//   ngOnInit(): void {
+//   this.crediturService.getData().subscribe({
+//     next: (data) => {
+//       this.parentData = data;
+//       console.log(data)
+//       this.cdRef.detectChanges()
+//       this.wordingMessage = 'Berhasil ambil data dari service';
+//     },
+//     error: (error) => {
+//       console.error('Gagal ambil data:', error);
+//       this.wordingMessage = 'Gagal ambil data dari service';
+//     }
+//   });
+// }
+
+
+  // myFunction(){
+  //   let name = "Apis"
+  //   this.name2 = name
+  // }
   
 
-  receivedForm(item: Creditur) {
-  this.crediturService.setData(item);
-  this.parentData = this.crediturService.getData();
-}
+//   receivedForm(item: Creditur) {
+//   this.crediturService.addDataToAPI(item).subscribe({
+//     next: () => {
+//       this.cdRef.detectChanges()
+//     },
+//     error: (err) => {
+//       console.error('Gagal menambahkan data:', err);
+//     }
+//   });
+// }
 
-  handleDelete(index: number) {
-  this.crediturService.deleteData(index);
-  this.parentData = this.crediturService.getData();
-}
+// handleDelete(id: string) {
+//   this.crediturService.deleteDataFromAPI(id).subscribe({
+//     next: () => {
+//       console.log("berhasil hapus data")
+//     },
+//     error: (err) => {
+//       console.error('Gagal menghapus data heh:', err);
+//     }
+//   });
+// }
 
 
 // masih dapat digunakan tetapi business logic mau dipindahkan ke service

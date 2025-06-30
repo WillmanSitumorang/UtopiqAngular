@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Creditur } from '../../model/creditur.interface';
+import { Creditur } from '../../../model/creditur.interface';
 
 @Injectable({
   providedIn: 'root'

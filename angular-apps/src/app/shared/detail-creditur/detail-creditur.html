@@ -1,0 +1,13 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<div *ngIf="!loading && kreditur">
+  <h2>Detail Kreditur</h2>
+  <p><strong>Nama:</strong> {{ kreditur.name }}</p>
+  <p><strong>Umur:</strong> {{ kreditur.age }}</p>
+  <p><strong>Pekerjaan:</strong> {{ kreditur.job }}</p>
+  <p><strong>Harga:</strong> {{ kreditur.price }}</p>
+  <p><strong>DP:</strong> {{ kreditur.dp }}</p>
+  <p><strong>Pengajuan:</strong> {{ kreditur.submittedAt | date }}</p>
+  <p><strong>Survey:</strong> {{ kreditur.date | date }}</p>
+</div>

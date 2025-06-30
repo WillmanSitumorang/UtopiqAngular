@@ -1,25 +1,23 @@
-<p>login works!</p>
+<h2 class="form-title">Login</h2>
 
-<h2>Login</h2>
-
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Email:</label>
-    <input type="email" formControlName="email" />
-    <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" />
+    <div class="error" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
       Email wajib diisi dan harus valid.
     </div>
   </div>
 
-  <div>
-    <label>Password:</label>
-    <input type="password" formControlName="password" />
-    <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password" />
+    <div class="error" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
       Password wajib diisi.
     </div>
   </div>
 
-  <div *ngIf="errorMessage" style="color: red;">
+  <div class="error-message" *ngIf="errorMessage">
     {{ errorMessage }}
   </div>
 

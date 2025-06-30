@@ -32,7 +32,7 @@ export class Login {
     const { email, password } = this.loginForm.value;
     this.authService.login(email, password).subscribe({
       next: () => {
-        this.router.navigate(['/']); // arahkan ke halaman utama setelah login
+        this.router.navigate(['/home']); // arahkan ke halaman utama setelah login
       },
       error: (err) => {
         this.errorMessage = 'Login gagal. Periksa kembali email atau password.';

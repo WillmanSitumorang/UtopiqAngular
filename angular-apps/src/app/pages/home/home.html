@@ -1,6 +1,10 @@
-<p>home works!</p>
+<div class="home-container">
+  <h1>Selamat Datang di Home</h1>
 
-<a routerLink="/about-us">Pindah ke About Us</a>
-
-<button (click)="goToForm()">Ke Form</button>
-<button (click)="goToTable()">Ke Table</button>
+  <div class="button-group">
+    <a routerLink="/about-us" class="btn link-btn">Tentang Kami</a>
+    <button (click)="goToForm()" class="btn primary-btn">Ke Form</button>
+    <button (click)="goToTable()" class="btn secondary-btn">Ke Tabel</button>
+    <button (click)="logout()" class="btn danger-btn">Logout</button>
+  </div>
+</div>

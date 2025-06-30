@@ -12,10 +12,10 @@ import { Creditur } from '../../../model/creditur.interface';
 export class Form {
   userForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    age: new FormControl('',[Validators.required]),
-    price: new FormControl('',[Validators.required]),
+    age: new FormControl<number | null>(null, [Validators.required]),
+    price: new FormControl<number | null>(null, [Validators.required]),
     job: new FormControl('',[Validators.required]),
-    dp: new FormControl('',[Validators.required]),
+    dp: new FormControl<number | null>(null, [Validators.required]),
     date: new FormControl('',[Validators.required, minDateValidator])
   })
   
